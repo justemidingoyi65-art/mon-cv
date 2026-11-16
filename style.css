@@ -1,11 +1,145 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  line-height: 1.6;
+/* ===== Base ===== */
+:root {
+  --ink: #14213d;
+  --text: #2b3445;
+  --muted: #5d6b82;
+  --accent: #1b6ca8;
+  --accent-soft: #e3eef8;
+  --paper: #f4f6f9;
+  --white: #ffffff;
+  --gutter: max(1.5rem, calc((100% - 720px) / 2));
 }
 
-h1, h2 {
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* ===== En-tête ===== */
+header {
+  background: var(--ink);
+  color: var(--white);
+  padding: 3.5rem var(--gutter) 3rem;
+  border-bottom: 6px solid var(--accent);
+}
+
+header h1 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+header h2 {
+  margin: 0;
+  font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+  font-weight: 400;
+  color: #b9cde3;
+}
+
+/* ===== Sections ===== */
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.2rem 1.5rem 0.4rem;
+}
+
+section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+section h2::before {
+  content: "";
+  width: 6px;
+  height: 1.4rem;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== Formations : frise verticale ===== */
+#formations ul {
+  border-left: 2px solid #c9d6e4;
+  margin-left: 0.4rem;
+}
+
+#formations li {
+  position: relative;
+  padding: 0.2rem 0 1rem 1.6rem;
+}
+
+#formations li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.75rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--accent);
+}
+
+/* ===== Compétences : étiquettes ===== */
+#competences ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+#competences li {
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ===== Associations ===== */
+#associations li {
+  padding: 0.7rem 1rem;
+  background: var(--white);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 1px 3px rgba(20, 33, 61, 0.08);
+}
+
+/* ===== Pied de page ===== */
+body::after {
+  content: "";
+  display: block;
+  height: 3rem;
+}
+
+/* ===== Impression ===== */
+@media print {
+  header {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
